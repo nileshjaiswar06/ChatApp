@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cookieParser from 'cookie-parser'
 import authRoutes from './routes/auth.routes.js'
 import messageRoutes from './routes/message.routes.js'
 import conversationRoutes from './routes/conversation.routes.js'
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 8000
 console.log("first",process.env.PORT)
 
 app.use(express.json())
+app.use(cookieParser())
 
 app.use('/api/auth', authRoutes)
 app.use('/api/messages', messageRoutes)
